@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>TDApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <br>
+  <br>
+  <div class="ion-padding">
+    <div id="title">
+      <ion-img id="logo" src="../../assets/img/logo.png"></ion-img> 
+      <h1>Registro de Usuario</h1>
+    </div>
+  </div>
+    <ion-item>
+      <ion-input label="Nombres" type="text" [(ngModel)]="nombre" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Apellidos" type="text"[(ngModel)]="apellido" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Email" type="email" [(ngModel)]="correo" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Contraseña" type="password" helperText="Debe contener 8 carácteres entre mayúsculas, minúsculas y números" [(ngModel)]="contrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Confirmar Contraseña" type="password" [(ngModel)]="confirmarContrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button expand="block">Foto de Perfil</ion-button>
+    </ion-item>
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" (click)="registrar()">Registrarse</ion-button>
+      <ion-button expand="block" routerLink="/landing">Cancelar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

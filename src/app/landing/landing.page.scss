@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+}
+
+
+h1{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+}
+
+ion-button{
+    margin-top: 20px;
+    --color: white;
+    --background: #003153
+}
+
+ion-content{
+    --background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+}
+ion-img{
+    width: 70%;
+}
+
+ion-card{
+    background-color: transparent;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+#logo{
+    width: 40%;
+}
+
+#contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
