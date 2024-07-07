@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crear Rutina</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-nonpadding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Nombre</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input label="Nombre de la Rutina:" labelPlacement="floating" [(ngModel)]="rutina.nombre" clearInput="true"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Actividades</ion-card-title>
+        <ion-card-subtitle>El número máximo de actividades es de 10</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input label="Actividad 1:" labelPlacement="floating" [(ngModel)]="rutina.act1" clearInput="true" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 2:" labelPlacement="floating" [(ngModel)]="rutina.act2" clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 3:" labelPlacement="floating" [(ngModel)]="rutina.act3" clearInput="true"></ion-input> 
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 4:" labelPlacement="floating" [(ngModel)]="rutina.act4" clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 5:" labelPlacement="floating" [(ngModel)]="rutina.act5" clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 6:" labelPlacement="floating" [(ngModel)]="rutina.act6" clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 7:" labelPlacement="floating" [(ngModel)]="rutina.act7" clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 8:" labelPlacement="floating" [(ngModel)]="rutina.act8" clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 9:" labelPlacement="floating" [(ngModel)]="rutina.act9" clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Actividad 10:" labelPlacement="floating" [(ngModel)]="rutina.act10" clearInput="true"></ion-input>  
+        </ion-item>
+        <ion-button shape="block" (click)="guardarRutina()">Guardar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

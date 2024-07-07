@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { loginGuard } from './guard/login.guard';
 
 const routes: Routes = [
   {
@@ -21,31 +22,31 @@ const routes: Routes = [
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule),
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule), canActivate: [loginGuard],
   },
   {
     path: 'rutina',
-    loadChildren: () => import('./rutina/rutina.module').then( m => m.RutinaPageModule)
+    loadChildren: () => import('./rutina/rutina.module').then( m => m.RutinaPageModule), canActivate: [loginGuard],
   },
   {
     path: 'todo',
-    loadChildren: () => import('./todo/todo.module').then( m => m.TodoPageModule)
+    loadChildren: () => import('./todo/todo.module').then( m => m.TodoPageModule), canActivate: [loginGuard]
   },
   {
     path: 'reminder',
-    loadChildren: () => import('./reminder/reminder.module').then( m => m.ReminderPageModule)
+    loadChildren: () => import('./reminder/reminder.module').then( m => m.ReminderPageModule), canActivate: [loginGuard]
   },
   {
     path: 'meds',
-    loadChildren: () => import('./meds/meds.module').then( m => m.MedsPageModule)
+    loadChildren: () => import('./meds/meds.module').then( m => m.MedsPageModule), canActivate: [loginGuard]
   },
   {
     path: 'sintomas',
-    loadChildren: () => import('./sintomas/sintomas.module').then( m => m.SintomasPageModule)
+    loadChildren: () => import('./sintomas/sintomas.module').then( m => m.SintomasPageModule), canActivate: [loginGuard]
   },
   {
-    path: 'not-found',
-    loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
+    path: '**',
+    loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule), pathMatch: 'full'
   },
 ];
 

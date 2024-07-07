@@ -10,6 +10,7 @@ export class LoginPage implements OnInit {
 
   email: string = '';
   password: string = '';
+  isLogged: boolean = false;
 
   constructor( private router:Router) { }
 
@@ -21,6 +22,7 @@ export class LoginPage implements OnInit {
       console.log('Login exitoso');
       this.presentToast();
       this.router.navigate(['/tabs']);
+      localStorage.setItem('isLogged', 'true');
     } else {
       this.presentErrorAlert();
     }

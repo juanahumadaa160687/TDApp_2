@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cerrar-sesion',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CerrarSesionPage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+    localStorage.setItem('isLogged', 'false');
+    this.router.navigate(['/landing']);
   }
-
 }
