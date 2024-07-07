@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DbAppService } from 'src/app/db/db-app.service';
 
 @Component({
   selector: 'app-nueva-rutina',
@@ -8,31 +9,24 @@ import { Router } from '@angular/router';
 })
 export class NuevaRutinaPage implements OnInit {
 
-  public rutina = {
-    nombre: '',
-    act1: '',
-    act2: '',
-    act3: '',
-    act4: '',
-    act5: '',
-    act6: '',
-    act7: '',
-    act8: '',
-    act9: '',
-    act10: '',
-  }
+  nombre_rutina: string = '';
+  act1: string = '';
+  act2: string = '';
+  act3: string = '';
+  act4: string = '';
+  act5: string = '';
+  act6: string = '';
+  act7: string = '';
+  act8: string = '';
+  act9: string = '';
+  act10: string = '';
+  id_usuario: number = 0;
+
 
   routines: any = [];
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private db: DbAppService) { }
 
   ngOnInit() {
   }
-
-  guardarRutina() {
-    this.routines.push(this.rutina);
-    console.log(this.routines);
-    localStorage.setItem('routines', JSON.stringify(this.routines));
-  }
-
 }

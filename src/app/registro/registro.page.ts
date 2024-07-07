@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DbAppService } from '../db/db-app.service';
+import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -14,29 +17,48 @@ export class RegistroPage implements OnInit {
   public contrasena: string = '';
   public confirmarContrasena: string = '';
 
-  constructor(private router:Router) { }
+  isDbReady: boolean = false;
 
-  ngOnInit() {
+  constructor(private router:Router, private db: DbAppService, private activatedroute: ActivatedRoute, private alertController: AlertController, private toastController: ToastController ) {
+    this.activatedroute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation()?.extras?.state) {
+        this.nombre = this.router.getCurrentNavigation()?.extras?.state?.['nombre'];
+        this.apellido = this.router.getCurrentNavigation()?.extras?.state?.['apellido'];
+        this.correo = this.router.getCurrentNavigation()?.extras?.state?.['correo'];
+        this.contrasena = this.router.getCurrentNavigation()?.extras?.state?.['contrasena'];
+      }
+    })
   }
 
-  registrar(){
-    if(this.contrasena == this.confirmarContrasena){
-      localStorage.setItem('firstname', this.nombre);
-      localStorage.setItem('lastname', this.apellido);
-      localStorage.setItem('email', this.correo);
-      localStorage.setItem('password', this.contrasena);
-      this.presentAlert();
-      this.router.navigate(['/login']);
-    }
-    else{
+  ngOnInit() {
+    this.db.getIsDBReady().subscribe(isReady => {
+      this.isDbReady = isReady;
+    })
+  }
+
+  guardar(){
+    if (this.contrasena === this.confirmarContrasena && this.contrasena.trim() != '' && this.nombre.trim() != '' && this.apellido.trim() != '' && this.correo.trim() != ''){
+      this.guardarUsuario();
+    } else {
       this.presentAlertError();
     }
+  
+  }
+
+  guardarUsuario() {
+    this.db.agregarUsuario(this.nombre, this.apellido, this.correo, this.contrasena)
+      .then(() => {
+        this.presentAlert();
+        this.router.navigate(['/login']);
+      })
+      .catch(() => {
+        this.presentAlertError});
   }
 
   async presentAlert() {
     const alert = document.createElement('ion-alert');
     alert.header = 'Registro exitoso';
-    alert.message = 'Se ha registrado correctamente';
+    alert.message = 'Usuario registrado correctamente';
     alert.buttons = ['OK'];
 
     document.body.appendChild(alert);
@@ -46,7 +68,7 @@ export class RegistroPage implements OnInit {
   async presentAlertError() {
     const alert = document.createElement('ion-alert');
     alert.header = 'Error';
-    alert.message = 'Las contraseñas no coinciden';
+    alert.message = 'Algo anda mal, verifica tus datos';
     alert.buttons = ['OK'];
 
     document.body.appendChild(alert);

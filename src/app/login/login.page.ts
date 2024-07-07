@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
+import { DbAppService } from '../db/db-app.service';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,23 +12,20 @@ export class LoginPage implements OnInit {
 
   email: string = '';
   password: string = '';
-  isLogged: boolean = false;
 
-  constructor( private router:Router) { }
+  constructor( private router:Router, private db: DbAppService, private alertController: AlertController, private toastController: ToastController) { }
 
   ngOnInit() {
   }
 
-  login() {
-    if (this.email === localStorage.getItem('email') && this.password === localStorage.getItem('password')) {
-      console.log('Login exitoso');
-      this.presentToast();
+  async login() {
+    const usuario = await this.db.validarUsuario(this.email, this.password);
+    if (usuario) {
       this.router.navigate(['/tabs']);
-      localStorage.setItem('isLogged', 'true');
-    } else {
+    }else {
       this.presentErrorAlert();
     }
-  }
+}
 
   async presentErrorAlert() {
     const alert = document.createElement('ion-alert');
