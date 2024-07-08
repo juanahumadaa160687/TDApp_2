@@ -13,24 +13,18 @@
       <h1>Registro de Usuario</h1>
     </div>
   </div>
-    <ion-item>
+
       <ion-input label="Nombres" type="text" [(ngModel)]="nombre" required></ion-input>
-    </ion-item>
-    <ion-item>
+      <br>
       <ion-input label="Apellidos" type="text"[(ngModel)]="apellido" required></ion-input>
-    </ion-item>
-    <ion-item>
+      <br>
       <ion-input label="Email" type="email" [(ngModel)]="correo" required></ion-input>
-    </ion-item>
-    <ion-item>
+      <br>
       <ion-input label="Contraseña" type="password" helperText="Debe contener 8 carácteres entre mayúsculas, minúsculas y números" [(ngModel)]="contrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-    </ion-item>
-    <ion-item>
+      <br>
       <ion-input label="Confirmar Contraseña" type="password" [(ngModel)]="confirmarContrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-button expand="block">Foto de Perfil</ion-button>
-    </ion-item>
+      <br>
+      <ion-button><ion-icon slot="icon-only" name="camera" (click)="addPhotoToGallery()"></ion-icon>Tomar Fotografía</ion-button>
 
   <ion-row>
     <ion-col>

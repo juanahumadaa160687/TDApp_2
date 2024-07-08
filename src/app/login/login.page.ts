@@ -10,7 +10,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  email: string = '';
+  email: string = ' ';
   password: string = '';
 
   constructor( private router:Router, private db: DbAppService, private alertController: AlertController, private toastController: ToastController) { }
@@ -20,11 +20,11 @@ export class LoginPage implements OnInit {
 
   async login() {
     const usuario = await this.db.validarUsuario(this.email, this.password);
-    if (usuario) {
+    if (usuario != null) {
       this.router.navigate(['/tabs']);
     }else {
       this.presentErrorAlert();
-    }
+  }
 }
 
   async presentErrorAlert() {
@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
   
   async presentToast() {
     const toast = document.createElement('ion-toast');
-    toast.message = 'Bienvenido' + ' ' + localStorage.getItem('firstname')
+    toast.message = 'Bienvenido';
     toast.duration = 2000;
     toast.position = 'top';
 

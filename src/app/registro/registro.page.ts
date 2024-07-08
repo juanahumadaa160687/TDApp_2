@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DbAppService } from '../db/db-app.service';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Camera, CameraResultType } from '@capacitor/camera';
+import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'app-registro',
@@ -19,7 +22,9 @@ export class RegistroPage implements OnInit {
 
   isDbReady: boolean = false;
 
-  constructor(private router:Router, private db: DbAppService, private activatedroute: ActivatedRoute, private alertController: AlertController, private toastController: ToastController ) {
+  public photo: SafeResourceUrl | undefined;
+
+  constructor(private router:Router, private db: DbAppService, private activatedroute: ActivatedRoute, private alertController: AlertController, private toastController: ToastController, private sanitizer: DomSanitizer, public photoService: PhotoService) {
     this.activatedroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras?.state) {
         this.nombre = this.router.getCurrentNavigation()?.extras?.state?.['nombre'];
@@ -30,11 +35,25 @@ export class RegistroPage implements OnInit {
     })
   }
 
-  ngOnInit() {
-    this.db.getIsDBReady().subscribe(isReady => {
-      this.isDbReady = isReady;
-    })
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
   }
+
+  ngOnInit() {}
+
+    
+  async takePicture() {
+        try{
+          const image = await Camera.getPhoto({
+            quality: 90,
+            allowEditing: false,
+            resultType: CameraResultType.Uri
+          });
+          this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image.webPath!);
+      }
+       catch (error) {
+          console.error(error);}
+    }
 
   guardar(){
     if (this.contrasena === this.confirmarContrasena && this.contrasena.trim() != '' && this.nombre.trim() != '' && this.apellido.trim() != '' && this.correo.trim() != ''){
