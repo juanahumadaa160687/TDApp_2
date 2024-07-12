@@ -309,8 +309,8 @@ export class DbAppService {
         .catch(e => this.presentToast('Error al validar usuario' + e));
     }
 
-    obtenerUsuario() {
-      return this.db.executeSql('SELECT * FROM users', [])
+    obtenerUsuario(correo: any) {
+      return this.db.executeSql('SELECT * FROM users WHERE correo = ?', [correo])
         .then((data) => {
           if (data.rows.length > 0) {
             return data.rows.item(0);

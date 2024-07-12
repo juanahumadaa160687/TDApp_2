@@ -11,6 +11,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 export class LoginPage implements OnInit {
 
   email: string = ' ';
+
   password: string = '';
 
   constructor( private router:Router, private db: DbAppService, private alertController: AlertController, private toastController: ToastController) { }
@@ -21,7 +22,12 @@ export class LoginPage implements OnInit {
   async login() {
     const usuario = await this.db.validarUsuario(this.email, this.password);
     if (usuario != null) {
-      this.router.navigate(['/tabs']);
+      const navigationExtras: NavigationExtras = {
+        state: {
+          emailEnviado: this.email
+        }
+      };
+      this.router.navigate(['/tabs'], navigationExtras);
     }else {
       this.presentErrorAlert();
   }
