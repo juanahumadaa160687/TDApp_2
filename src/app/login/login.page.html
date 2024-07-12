@@ -11,24 +11,24 @@
     </ion-toolbar>
   </ion-header>
   <br>
-  <br>
-  <br>
-  <div class="ion-padding">
-    <div id="title">
-      <ion-img id="logo" src="../../assets/img/logo.png"></ion-img> 
-      <h1>Iniciar Sesión</h1>
-    </div>
-    <ion-item>
-      <ion-input label="Email" type="email" placeholder="usuario@ejemplo.com" [(ngModel)]="email" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Contraseña" type="password" [(ngModel)]="password" required>
-        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-      </ion-input>
-    </ion-item>
-    <br>
-    <br>
-    <ion-button expand="block" (click)="login()">Iniciar Sesión</ion-button>
-    <ion-button expand="block" routerLink="/registro">Registrarse</ion-button>
+  <div class="ion-padding" id="contenedor">
+    <ion-card>
+      <ion-card-header>
+        <div id="title">
+          <ion-img id="logo" src="../../assets/img/logo.png"></ion-img> 
+          <h1>Iniciar Sesión</h1>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input lines="none" label="Email:" type="email" [(ngModel)]="email" required></ion-input>
+        <ion-input lines="none" label="Contraseña:" type="password" [(ngModel)]="password" required>
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        <div class="ion-padding botones">
+          <ion-button expand="block" (click)="login()" shape="round">Iniciar Sesión</ion-button>
+          <ion-button expand="block" routerLink="/registro" shape = round>Registrarse</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

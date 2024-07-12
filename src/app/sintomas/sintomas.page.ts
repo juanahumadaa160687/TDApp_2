@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostAttributeToken, OnInit } from '@angular/core';
+import { DbAppService } from '../db/db-app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sintomas',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SintomasPage implements OnInit {
 
-  constructor() { }
+  arregloSintomas: any = [
+    {
+      id: '',
+      descripcion: '',
+      fecha: '',
+    }
+  ];
+
+  constructor(private db: DbAppService, private router: Router) { }
 
   ngOnInit() {
+    this.db.dbState().subscribe((res) => {
+      if(res){
+        this.db.fetchSintomas().subscribe(item => {
+          this.arregloSintomas = item;
+        })
+      }
+    });
+  }
+
+  deleteSintoma(x: any){
+    this.db.eliminarSintoma(x.id);
+    this.db.presentToast('Sintoma eliminado');
   }
 
 }

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registrar Síntoma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Síntoma</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input label="Descripción:" labelPlacement="floating" [(ngModel)]="descripcion" clearInput="true" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Fecha:" labelPlacement="floating" [(ngModel)]="fecha" clearInput="true" type="date" ></ion-input>
+        </ion-item>
+
+        <ion-button shape="block" (click)="enviarSintoma()">Guardar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

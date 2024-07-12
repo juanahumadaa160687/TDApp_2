@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { NuevaRutinaPageRoutingModule } from './nueva-rutina-routing.module';
 
 import { NuevaRutinaPage } from './nueva-rutina.page';
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { NuevaRutinaPage } from './nueva-rutina.page';
     IonicModule,
     NuevaRutinaPageRoutingModule
   ],
+  providers: [SQLite],
   declarations: [NuevaRutinaPage]
 })
 export class NuevaRutinaPageModule {}

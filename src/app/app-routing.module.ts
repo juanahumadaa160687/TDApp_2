@@ -33,10 +33,6 @@ const routes: Routes = [
     loadChildren: () => import('./todo/todo.module').then( m => m.TodoPageModule), //canActivate: [loginGuard]
   },
   {
-    path: 'reminder',
-    loadChildren: () => import('./reminder/reminder.module').then( m => m.ReminderPageModule), //canActivate: [loginGuard]
-  },
-  {
     path: 'meds',
     loadChildren: () => import('./meds/meds.module').then( m => m.MedsPageModule), //canActivate: [loginGuard]
   },

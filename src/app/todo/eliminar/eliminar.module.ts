@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ReminderPageRoutingModule } from './reminder-routing.module';
+import { EliminarPageRoutingModule } from './eliminar-routing.module';
 
-import { ReminderPage } from './reminder.page';
+import { EliminarPage } from './eliminar.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReminderPageRoutingModule
+    EliminarPageRoutingModule
   ],
-  declarations: [ReminderPage]
+  declarations: [EliminarPage]
 })
-export class ReminderPageModule {}
+export class EliminarPageModule {}

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TodoPageRoutingModule } from './todo-routing.module';
 
 import { TodoPage } from './todo.page';
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { TodoPage } from './todo.page';
     IonicModule,
     TodoPageRoutingModule
   ],
+  providers: [SQLite],
   declarations: [TodoPage]
 })
 export class TodoPageModule {}

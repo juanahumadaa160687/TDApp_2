@@ -47,7 +47,8 @@ export class RegistroPage implements OnInit {
           const image = await Camera.getPhoto({
             quality: 90,
             allowEditing: false,
-            resultType: CameraResultType.Uri
+            resultType: CameraResultType.Uri,
+            saveToGallery: true
           });
           this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image.webPath!);
       }

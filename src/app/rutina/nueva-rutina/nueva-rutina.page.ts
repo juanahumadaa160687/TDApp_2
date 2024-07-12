@@ -15,18 +15,18 @@ export class NuevaRutinaPage implements OnInit {
   act3: string = '';
   act4: string = '';
   act5: string = '';
-  act6: string = '';
-  act7: string = '';
-  act8: string = '';
-  act9: string = '';
-  act10: string = '';
-  id_usuario: number = 0;
 
-
-  routines: any = [];
 
   constructor(private router:Router, private db: DbAppService) { }
 
   ngOnInit() {
+   
   }
+
+  enviarRutina(){
+    this.db.insertarRutina(this.nombre_rutina, this.act1, this.act2, this.act3, this.act4, this.act5);
+    this.db.presentToast('Rutina guardada');
+    this.router.navigate(['/rutina']);
+  }
+  
 }

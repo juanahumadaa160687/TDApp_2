@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { VerBlogPageRoutingModule } from './ver-blog-routing.module';
 
 import { VerBlogPage } from './ver-blog.page';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VerBlogPageRoutingModule
+    VerBlogPageRoutingModule,
   ],
+  providers: [HttpClient],
   declarations: [VerBlogPage]
 })
 export class VerBlogPageModule {}

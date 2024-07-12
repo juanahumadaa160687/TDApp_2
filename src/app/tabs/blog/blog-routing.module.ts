@@ -9,7 +9,7 @@ const routes: Routes = [
     component: BlogPage
   },
   {
-    path: 'ver-blog',
+    path: 'ver-blog/:id',
     loadChildren: () => import('./ver-blog/ver-blog.module').then( m => m.VerBlogPageModule)
   }
 ];

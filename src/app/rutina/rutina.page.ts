@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DbAppService } from '../db/db-app.service';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-rutina',
@@ -9,26 +9,49 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class RutinaPage implements OnInit {
 
-  arrayRutinas: any = [
+  arregloRutinas: any = [
     {
-      id: 0,
+      id: '',
       nombre_rutina: '',
       act1: '',
       act2: '',
       act3: '',
       act4: '',
-      act5: '',
-      act6: '',
-      act7: '',
-      act8: '',
-      act9: '',
-      act10: '',
-      usuario_id: 0
-    },
+      act5: ''
+    }
   ];
 
-  constructor(private servicioBD: DbAppService, private router: Router) { }
+  constructor(private db: DbAppService, private router: Router) {
+  }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.db.dbState().subscribe((res) => {
+      if(res){
+        this.db.fetchRutinas().subscribe(item => {
+          this.arregloRutinas = item;
+        })
       }
+    });
+  }
+
+  deleteRutina(x: any){
+    this.db.eliminarRutina(x.id);
+    this.db.presentToast('Rutina eliminada');
+  }
+
+  buscarRutina(x: any){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        idEnviado: x.id,
+        rutinaEnviada: x.nombre_rutina,
+        act1Enviada: x.act1,
+        act2Enviada: x.act2,
+        act3Enviada: x.act3,
+        act4Enviada: x.act4,
+        act5Enviada: x.act5
+      }
+    };
+    this.router.navigate(['rutina/ver-rutina/' + x.id], navigationExtras);
+  }
+    
 }

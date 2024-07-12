@@ -6,30 +6,28 @@
 
 <ion-content [fullscreen]="true">
   <br>
-  <br>
   <div class="ion-padding">
     <div id="title">
       <ion-img id="logo" src="../../assets/img/logo.png"></ion-img> 
       <h1>Registro de Usuario</h1>
     </div>
+  
+
+      <ion-input label="Nombres:" type="text" [(ngModel)]="nombre" required></ion-input>
+      <br>
+      <ion-input label="Apellidos:" type="text"[(ngModel)]="apellido" required></ion-input>
+      <br>
+      <ion-input label="Email:" type="email" [(ngModel)]="correo" required></ion-input>
+      <br>
+      <ion-input label="Contraseña:" type="password" helperText="Debe contener 8 carácteres entre mayúsculas, minúsculas y números" [(ngModel)]="contrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+      <br>
+      <ion-input label="Confirmar Contraseña:" type="password" [(ngModel)]="confirmarContrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
+      <br>
+      <ion-button (click)="addPhotoToGallery()"><ion-icon slot="end" name="camera" ></ion-icon>Imágen de Perfil</ion-button>
+
+
+      <ion-button shape="round" expand="block" (click)="guardar()">Registrarse</ion-button>
+      <ion-button shape="round" expand="block" routerLink="/landing">Cancelar</ion-button>
+
   </div>
-
-      <ion-input label="Nombres" type="text" [(ngModel)]="nombre" required></ion-input>
-      <br>
-      <ion-input label="Apellidos" type="text"[(ngModel)]="apellido" required></ion-input>
-      <br>
-      <ion-input label="Email" type="email" [(ngModel)]="correo" required></ion-input>
-      <br>
-      <ion-input label="Contraseña" type="password" helperText="Debe contener 8 carácteres entre mayúsculas, minúsculas y números" [(ngModel)]="contrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-      <br>
-      <ion-input label="Confirmar Contraseña" type="password" [(ngModel)]="confirmarContrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-      <br>
-      <ion-button><ion-icon slot="icon-only" name="camera" (click)="addPhotoToGallery()"></ion-icon>Tomar Fotografía</ion-button>
-
-  <ion-row>
-    <ion-col>
-      <ion-button expand="block" (click)="guardar()">Registrarse</ion-button>
-      <ion-button expand="block" routerLink="/landing">Cancelar</ion-button>
-    </ion-col>
-  </ion-row>
 </ion-content>

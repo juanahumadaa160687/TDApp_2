@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Nueva Actividad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Actividades</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+
+        <ion-item>
+          <ion-input label="Actividad:" labelPlacement="floating" [(ngModel)]="actividad" clearInput="true" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="fecha:" labelPlacement="floating" [(ngModel)]="fecha" clearInput="true" type="date"></ion-input>
+        </ion-item>
+
+        <ion-button shape="block" (click)="enviarActividad()">Guardar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

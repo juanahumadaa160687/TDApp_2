@@ -1,13 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>verBlog</ion-title>
+    <ion-title>Blog</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">verBlog</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="nonpadding">
+    <ion-card *ngFor="let x of post">
+      <ion-img src='{{x.image}}'></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{x.title}}</ion-card-title>
+        <ion-card-subtitle>{{x.author}}</ion-card-subtitle>
+        <p>{{x.created_at | date: "short"}}</p>
+        <ion-card-content>
+          <p>{{x.content1}}</p>
+          <br>
+          <p>{{x.content2}}</p>
+          <br>
+          <p>{{x.content3}}</p>
+          <br>
+          <p>{{x.content4}}</p>
+          <br>
+          <p>{{x.content5}}</p>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+  </div>
 </ion-content>

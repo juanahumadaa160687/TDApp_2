@@ -1,13 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>meds</ion-title>
+    <ion-title>Recordatorio de Medicamentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">meds</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="ion-padding">
+    <div class="agregar">
+      <ion-button id="botonA" routerLink="/meds/crear"><ion-icon name="create" slot="end"></ion-icon>Agregar Medicamento</ion-button>
+      <img src="../../assets/img/meds.jpg" alt="">
+    </div>
+    
+
+  <ion-card *ngFor="let x of arregloMeds">
+    <ion-card-header>
+      <ion-card-title>{{x.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Dosis: {{x.dosis}}</p>
+      <p>Hora: {{x.hora}}</p>
+      <div id="botonBorrar">
+        <ion-button id="borrar" (click)="deleteMed(x)" ><ion-icon name="trash"></ion-icon>Eliminar</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  </div>
 </ion-content>

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SintomasPageRoutingModule } from './sintomas-routing.module';
 
 import { SintomasPage } from './sintomas.page';
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { SintomasPage } from './sintomas.page';
     IonicModule,
     SintomasPageRoutingModule
   ],
+  providers: [SQLite],
   declarations: [SintomasPage]
 })
 export class SintomasPageModule {}

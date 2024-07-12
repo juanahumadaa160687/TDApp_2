@@ -1,9 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Injectable, NgModule } from '@angular/core';
 import { Observable, retry } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+})
+
+@NgModule({
+  providers: [HttpClient]
 })
 export class ApiRestService {
 
@@ -14,15 +18,15 @@ export class ApiRestService {
     })
   }
 
-  apiURL = 'http://34.200.215.9:8000/';
+  apiURL = 'http://34.200.215.9:8000/blog/posts'
 
   constructor( private http:HttpClient ) { }
 
   getPosts(): Observable<any> {
-    return this.http.get(this.apiURL + 'blog/posts/').pipe(retry(3));
+    return this.http.get(this.apiURL).pipe(retry(3));
   }
 
   getPost(id:any): Observable<any> {
-    return this.http.get(this.apiURL + 'blog/posts/' + id + '/').pipe(retry(3));
+    return this.http.get(this.apiURL + '/' + id ).pipe(retry(3));
   }
 }

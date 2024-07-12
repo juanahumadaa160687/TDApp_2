@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-export const loginGuard = () => {
+export const loginGuard = (p0: unknown) => {
   const router = inject(Router);
 
   if (localStorage.getItem('isLogged') === 'true'){

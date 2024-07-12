@@ -1,13 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>todo</ion-title>
+    <ion-title>To Do</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">todo</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="ion-padding">
+    <div id="botonNuevo">
+      <ion-button id="nuevo" routerLink="/todo/crear"><ion-icon name="create" slot="end"></ion-icon>Nueva Actividad</ion-button>
+      <br>
+      <img src="../../assets/img/todo.webp" alt="">
+    </div>
+
+    <ion-card *ngFor="let x of arregloToDo">
+      <ion-card-header>
+        <ion-card-title>{{x.actividad}}</ion-card-title>
+        <ion-card-subtitle>{{x.fecha | date: "dd/MM/yyyy"}} </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="eliminarcont">
+          <ion-button id="eliminar" (click)="deleteActividad(x)"><ion-icon name="trash"></ion-icon></ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    </div>
 </ion-content>

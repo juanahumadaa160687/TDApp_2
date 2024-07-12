@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiRestService } from 'src/app/services/api-rest.service';
 
 @Component({
@@ -8,25 +9,25 @@ import { ApiRestService } from 'src/app/services/api-rest.service';
 })
 export class BlogPage implements OnInit {
 
-  image: string = '';
-  title: string = '';
-  author: string = '';
+  blog: any = [];
 
-  constructor( private api: ApiRestService) { }
+
+  constructor( private api: ApiRestService, private router:Router) { }
 
   ionViewWillEnter() {
-    this.getPosts();
+    this.traerPosts();
   }
 
   ngOnInit() {
   }
 
-  getPosts() {
+  traerPosts() {
     this.api.getPosts().subscribe((data) => {
-      this.image = data[0].image;
-      this.title = data[0].title;
-      this.author = data[0].author;
-    });
-  }
+      this.blog = data.posts;
+  })
+}
 
+  verPost() {
+    this.router.navigate(['tabs/blog/ver-blog']);
+  }
 }

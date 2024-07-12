@@ -7,7 +7,15 @@ const routes: Routes = [
   {
     path: '',
     component: TodoPage
+  },  {
+    path: 'crear',
+    loadChildren: () => import('./crear/crear.module').then( m => m.CrearPageModule)
+  },
+  {
+    path: 'eliminar',
+    loadChildren: () => import('./eliminar/eliminar.module').then( m => m.EliminarPageModule)
   }
+
 ];
 
 @NgModule({

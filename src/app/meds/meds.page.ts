@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DbAppService } from '../db/db-app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-meds',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedsPage implements OnInit {
 
-  constructor() { }
+  arregloMeds: any = [
+    {
+      id: '',
+      nombre_medicamento: '',
+      dosis: '',
+      hora: '',
+    }
+  ];
+
+  constructor(private db: DbAppService, private router: Router) { }
 
   ngOnInit() {
+    this.db.dbState().subscribe((res) => {
+      if(res){
+        this.db.fetchMedicamentos().subscribe(item => {
+          this.arregloMeds = item;
+        })
+      }
+    });
   }
 
+  deleteMed(x: any){
+    this.db.eliminarMedicamento(x.id);
+    this.db.presentToast('Medicamento eliminado');
+  }
 }
