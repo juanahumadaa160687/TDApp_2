@@ -25,22 +25,6 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule), //canActivate: [loginGuard],
   },
   {
-    path: 'rutina',
-    loadChildren: () => import('./rutina/rutina.module').then( m => m.RutinaPageModule), //canActivate: [loginGuard],
-  },
-  {
-    path: 'todo',
-    loadChildren: () => import('./todo/todo.module').then( m => m.TodoPageModule), //canActivate: [loginGuard]
-  },
-  {
-    path: 'meds',
-    loadChildren: () => import('./meds/meds.module').then( m => m.MedsPageModule), //canActivate: [loginGuard]
-  },
-  {
-    path: 'sintomas',
-    loadChildren: () => import('./sintomas/sintomas.module').then( m => m.SintomasPageModule), //canActivate: [loginGuard]
-  },
-  {
     path: '**',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule), pathMatch: 'full'
   },

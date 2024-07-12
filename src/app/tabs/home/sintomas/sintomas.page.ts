@@ -1,5 +1,5 @@
 import { Component, HostAttributeToken, OnInit } from '@angular/core';
-import { DbAppService } from '../db/db-app.service';
+import { DbAppService } from '../../../db/db-app.service';
 import { Router } from '@angular/router';
 
 @Component({

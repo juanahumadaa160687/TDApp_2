@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DbAppService } from '../db/db-app.service';
+import { DbAppService } from '../../../db/db-app.service';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
