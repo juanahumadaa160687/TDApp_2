@@ -1,32 +1,19 @@
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Injectable, NgModule } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable, retry } from 'rxjs';
+import { Post } from './post';
 
 @Injectable({
   providedIn: 'root',
 })
 
-@NgModule({
-  providers: [HttpClient]
-})
 export class ApiRestService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
-    })
-  }
+  private api = 'https://api-generator.retool.com/Sl2KBd/tdahblog'
 
-  apiURL = 'http://34.200.215.9:8000/blog/posts'
-
-  constructor( private http:HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
   getPosts(): Observable<any> {
-    return this.http.get(this.apiURL).pipe(retry(3));
-  }
-
-  getPost(id:any): Observable<any> {
-    return this.http.get(this.apiURL + '/' + id ).pipe(retry(3));
+    return this.http.get<Post[]>(this.api);
   }
 }

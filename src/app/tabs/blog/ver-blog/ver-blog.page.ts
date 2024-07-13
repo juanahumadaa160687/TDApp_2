@@ -16,12 +16,6 @@ export class VerBlogPage implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedroute.snapshot.paramMap.get('id');
-    this.getPost();
-  }
-  getPost() {
-    this.api.getPost(this.id).subscribe((data) => {
-      this.post.push(data.posts);
-    });
   }
 }
 

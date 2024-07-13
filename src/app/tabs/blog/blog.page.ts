@@ -11,8 +11,7 @@ export class BlogPage implements OnInit {
 
   blog: any = [];
 
-
-  constructor( private api: ApiRestService, private router:Router) { }
+  constructor( private api: ApiRestService) { }
 
   ionViewWillEnter() {
     this.traerPosts();
@@ -27,7 +26,4 @@ export class BlogPage implements OnInit {
   })
 }
 
-  verPost() {
-    this.router.navigate(['tabs/blog/ver-blog']);
-  }
 }
