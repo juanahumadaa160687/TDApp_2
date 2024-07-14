@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EliminarRutinaPageRoutingModule } from './eliminar-rutina-routing.module';
+import { VerblogPageRoutingModule } from './verblog-routing.module';
 
-import { EliminarRutinaPage } from './eliminar-rutina.page';
+import { VerblogPage } from './verblog.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EliminarRutinaPageRoutingModule
+    VerblogPageRoutingModule
   ],
-  declarations: [EliminarRutinaPage]
+  declarations: [VerblogPage]
 })
-export class EliminarRutinaPageModule {}
+export class VerblogPageModule {}
