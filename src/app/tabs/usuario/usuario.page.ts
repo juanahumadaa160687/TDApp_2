@@ -17,11 +17,11 @@ export class UsuarioPage implements OnInit {
   isDbReady: boolean = false;
 
   constructor( private db: DbAppService, private activatedRoute: ActivatedRoute, private http:HttpClient) {
-    this.correo = this.activatedRoute.snapshot.paramMap.get('correo');
+    
   }
 
   ngOnInit() {
-
+    this.correo = this.activatedRoute.snapshot.paramMap.get('correo');
     this.db.getIsDBReady().subscribe((ready) => {
       if (ready) {
         this.getUsuarios();

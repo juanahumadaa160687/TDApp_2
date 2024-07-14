@@ -21,7 +21,7 @@ export class CrearPage implements OnInit {
   enviarMedicamento(){
     this.db.crearMedicamento(this.nombre, this.dosis, this.hora);
     this.db.presentToast('Medicamento guardado');
-    this.router.navigate(['/meds']);
+    this.router.navigate(['/tabs/home/meds']);
   }
 
 }

@@ -9,13 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TodoPage implements OnInit {
 
-  arregloToDo: any = [
-    {
-      id: '',
-      actividad: '',
-      fecha: ''
-    }
-  ]
+  arregloToDo: any = []
 
   constructor(private db: DbAppService, private router: Router) { }
 
@@ -27,11 +21,6 @@ export class TodoPage implements OnInit {
         })
       }
     });
-  }
-
-  deleteActividad(x: any){
-    this.db.eliminarActividad(x.id);
-    this.db.presentToast('Actividad eliminada');
   }
 
 }

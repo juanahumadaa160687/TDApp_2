@@ -1,36 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>TDApp</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="ion-nopadding">
-    <ion-card>
+    <ion-card *ngFor="let x of usuario">
       <ion-card-header>
         <div id="head" class="ion-padding">
           <img src="./assets/img/logo2.png" width="150" alt="">
           <ion-card-title>Perfil de Usuario</ion-card-title>
         </div>
       </ion-card-header>
-      <ion-card-content>
+      <ion-card-content >
         <ion-item lines="none">
-          <ion-label>Nombre: </ion-label>
+          <ion-label>Nombre: {{x.nombre}}</ion-label>
         </ion-item>
         <ion-item lines="none">
-          <ion-label>Apellido</ion-label>
+          <ion-label>Apellido: {{x.apellido}}</ion-label>
         </ion-item>
         <ion-item lines="none">
-          <ion-label>Dirección: </ion-label>
+          <ion-label>Correo: {{x.correo}}</ion-label>
         </ion-item>
-        <ion-item lines="none">
-          <ion-label>Ciudad: </ion-label>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label>Correo: </ion-label>
-        </ion-item>
-        <ion-button size="small" expand="block">Actualizar</ion-button>
-        <ion-button size="small" expand="block" color="danger">Eliminar Cuenta</ion-button>
       </ion-card-content>
     </ion-card>
   </div>

@@ -9,14 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MedsPage implements OnInit {
 
-  arregloMeds: any = [
-    {
-      id: '',
-      nombre_medicamento: '',
-      dosis: '',
-      hora: '',
-    }
-  ];
+  arregloMeds: any = [];
 
   constructor(private db: DbAppService, private router: Router) { }
 
@@ -29,9 +22,5 @@ export class MedsPage implements OnInit {
       }
     });
   }
-
-  deleteMed(x: any){
-    this.db.eliminarMedicamento(x.id);
-    this.db.presentToast('Medicamento eliminado');
-  }
+  
 }

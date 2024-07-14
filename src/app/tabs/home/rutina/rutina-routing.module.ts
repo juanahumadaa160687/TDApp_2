@@ -18,9 +18,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'ver-rutina/:id',
-    loadChildren: () => import('./ver-rutina/ver-rutina.module').then( m => m.VerRutinaPageModule)
+    path: 'eliminar/:id',
+    loadChildren: () => import('./eliminar/eliminar.module').then( m => m.EliminarPageModule)
   },
+
 
 ];
 

@@ -11,3 +11,10 @@ ion-button{
 ion-item{
   border-radius: 10px;
 }
+
+#head{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

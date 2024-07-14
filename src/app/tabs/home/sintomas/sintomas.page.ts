@@ -9,13 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SintomasPage implements OnInit {
 
-  arregloSintomas: any = [
-    {
-      id: '',
-      descripcion: '',
-      fecha: '',
-    }
-  ];
+  arregloSintomas: any = [];
 
   constructor(private db: DbAppService, private router: Router) { }
 
@@ -27,11 +21,6 @@ export class SintomasPage implements OnInit {
         })
       }
     });
-  }
-
-  deleteSintoma(x: any){
-    this.db.eliminarSintoma(x.id);
-    this.db.presentToast('Sintoma eliminado');
   }
 
 }

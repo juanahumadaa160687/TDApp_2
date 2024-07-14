@@ -26,7 +26,7 @@ export class NuevaRutinaPage implements OnInit {
   enviarRutina(){
     this.db.insertarRutina(this.nombre_rutina, this.act1, this.act2, this.act3, this.act4, this.act5);
     this.db.presentToast('Rutina guardada');
-    this.router.navigate(['/rutina']);
+    this.router.navigate(['/tabs/home/rutina']);
   }
   
 }

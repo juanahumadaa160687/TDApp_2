@@ -20,7 +20,7 @@ export class CrearPage implements OnInit {
   enviarSintoma(){
     this.db.crearSintoma(this.descripcion, this.fecha);
     this.db.presentToast('Sintoma guardado');
-    this.router.navigate(['/sintomas']);
+    this.router.navigate(['/tabs/home/sintomas']);
   }
 
 }

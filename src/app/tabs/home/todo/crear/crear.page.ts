@@ -20,6 +20,6 @@ export class CrearPage implements OnInit {
   enviarActividad(){
     this.db.insertarTodoActividad(this.actividad, this.fecha);
     this.db.presentToast('Actividad guardada');
-    this.router.navigate(['/todo']);
+    this.router.navigate(['/tabs/home/todo']);
   }
 }

@@ -12,6 +12,11 @@ const routes: Routes = [
     path: 'crear',
     loadChildren: () => import('./crear/crear.module').then( m => m.CrearPageModule)
   },
+  {
+    path: 'eliminar/:id',
+    loadChildren: () => import('./eliminar/eliminar.module').then( m => m.EliminarPageModule)
+  },
+
 
 ];
 

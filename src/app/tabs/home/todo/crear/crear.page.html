@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Nueva Actividad</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,14 +11,14 @@
   <div class="ion-padding">
     <img src="../../../../../assets/img/todo2.jpeg" alt="">
     <ion-item lines="none">
-      <ion-input label="Actividad" labelPlacement="floating" type="text" required></ion-input>
+      <ion-input label="Actividad" labelPlacement="floating" type="text" [(ngModel)]="actividad" required></ion-input>
     </ion-item>
 
     <ion-item lines="none">
-      <ion-input label="Fecha" labelPlacement="floating" type="date" required></ion-input>
+      <ion-input label="Fecha" labelPlacement="floating" type="date" [(ngModel)]="fecha" required></ion-input>
     </ion-item>
   </div>
   <div class="ion-padding">
-    <ion-button expand="block"><ion-icon name="add" slot="start"></ion-icon>Guardar</ion-button>
+    <ion-button expand="block" (click)="enviarActividad()"><ion-icon name="add" slot="start"></ion-icon>Guardar</ion-button>
   </div>
 </ion-content>

@@ -16,4 +16,26 @@ ion-button{
 
 ion-item{
   --color: white;
+  margin-bottom: 20px;
+
+}
+
+ion-item-sliding{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  --background: transparent;
+}
+
+ion-card{
+  border-radius: 20px;
+  --background: transparent;
+  --color: white;
+}
+
+ion-list{
+  --background: transparent;
+}
+
+ion-card-content{
+  --background: transparent;
 }

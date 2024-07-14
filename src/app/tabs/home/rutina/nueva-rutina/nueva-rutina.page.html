@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Nueva Rutina</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,39 +10,24 @@
 <ion-content [fullscreen]="true">
   <div class="ion-padding">
     <ion-item lines="none">
-      <ion-input label="Nombre de la Rutina" labelPlacement="floating" type="text" required></ion-input>
+      <ion-input label="Nombre de la Rutina" labelPlacement="floating" type="text" [(ngModel)]="nombre_rutina" required></ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-input label="Actividad 1" labelPlacement="floating" type="text" required></ion-input>
+      <ion-input label="Actividad 1" labelPlacement="floating" type="text" [(ngModel)]="act1" required></ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-input label="Actividad 2" labelPlacement="floating" type="text" required></ion-input>
+      <ion-input label="Actividad 2" labelPlacement="floating" type="text" [(ngModel)]="act2" ></ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-input label="Actividad 3" labelPlacement="floating" type="text" required></ion-input>
+      <ion-input label="Actividad 3" labelPlacement="floating" type="text" [(ngModel)]="act3" ></ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-input label="Actividad 4" labelPlacement="floating" type="text" required></ion-input>
+      <ion-input label="Actividad 4" labelPlacement="floating" type="text" [(ngModel)]="act4" ></ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-input label="Actividad 5" labelPlacement="floating" type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-input label="Actividad 6" labelPlacement="floating" type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-input label="Actividad 7" labelPlacement="floating" type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-input label="Actividad 8" labelPlacement="floating" type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-input label="Actividad 9" labelPlacement="floating" type="text" required></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-input label="Actividad 10" labelPlacement="floating" type="text" required></ion-input>
+      <ion-input label="Actividad 5" labelPlacement="floating" type="text" [(ngModel)]="act5" ></ion-input>
     </ion-item>
 
-    <ion-button expand="block"><ion-icon name="add" slot="start"></ion-icon> Guardar</ion-button>
+    <ion-button expand="block" (click)="enviarRutina()"> Guardar</ion-button>
   </div>
 </ion-content>
