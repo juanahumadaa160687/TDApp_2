@@ -5,29 +5,34 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <br>
-  <div class="ion-padding">
-    <div id="title">
-      <ion-img id="logo" src="../../assets/img/logo.png"></ion-img> 
-      <h1>Registro de Usuario</h1>
+  <div id="head" class="ion-padding">
+    <img src="../../assets/img/logo2.png" width="100" alt="">
+    <h1>Registro de Usuario</h1>
+  </div>
+  <div id="contenido" class="ion-padding">
+
+    <ion-item lines="none">
+      <ion-input label="Nombre" labelPlacement="floating" type="text" required [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Apellidos" labelPlacement="floating" type="text" required [(ngModel)]="apellido"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Email" labelPlacement="floating" type="email" required [(ngModel)]="correo"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Contraseña" labelPlacement="floating" helperText="Debe contener 8 carácteres entre mayúsculas, minúsculas y números" type="password" pattern="[A-Za-z0-9]{8}" [(ngModel)]="contrasena" required ></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Confirmar Contraseña" labelPlacement="floating" type="password" pattern="[A-Za-z0-9]{8}" [(ngModel)]="confirmarContrasena" required ></ion-input>
+    </ion-item>
+
+
+    <div class="ion-padding">
+      <ion-button  expand="block" (click)="guardar()">Registrarse</ion-button>
+      <ion-button color="secondary" size="small" routerLink="/login" expand="block" fill="clear">Ya tengo cuenta</ion-button>
     </div>
-  
 
-      <ion-input label="Nombres:" type="text" [(ngModel)]="nombre" required></ion-input>
-      <br>
-      <ion-input label="Apellidos:" type="text"[(ngModel)]="apellido" required></ion-input>
-      <br>
-      <ion-input label="Email:" type="email" [(ngModel)]="correo" required></ion-input>
-      <br>
-      <ion-input label="Contraseña:" type="password" helperText="Debe contener 8 carácteres entre mayúsculas, minúsculas y números" [(ngModel)]="contrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-      <br>
-      <ion-input label="Confirmar Contraseña:" type="password" [(ngModel)]="confirmarContrasena" pattern="[A-Za-z0-9]{8}" required><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-      <br>
-      <ion-button (click)="addPhotoToGallery()"><ion-icon slot="end" name="camera" ></ion-icon>Imágen de Perfil</ion-button>
-
-
-      <ion-button shape="round" expand="block" (click)="guardar()">Registrarse</ion-button>
-      <ion-button shape="round" expand="block" routerLink="/landing">Cancelar</ion-button>
 
   </div>
 </ion-content>

@@ -1,31 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Recordatorio de Medicamentos</ion-title>
+    <ion-title>Medicamentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="ion-padding">
-    <div class="agregar">
-      <ion-button id="botonA" routerLink="/meds/crear"><ion-icon name="create" slot="end"></ion-icon>Agregar Medicamento</ion-button>
-      <img src="../../assets/img/meds.jpg" alt="">
-    </div>
-    
+  <div id="imagen" class="ion-nopadding">
+    <img src="../../../../assets/img/meds.jpg" alt="">
+  </div>
+  <div id="add" class="ion-padding">
+    <ion-button size="small" routerLink="/tabs/home/meds/crear"><ion-icon name="add" slot="start"></ion-icon>Nuevo</ion-button>
+  </div>
 
-  <ion-card *ngFor="let x of arregloMeds">
-    <ion-card-header>
-      <ion-card-title>{{x.nombre}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Dosis: {{x.dosis}}</p>
-      <p>Hora: {{x.hora}}</p>
-      <div id="botonBorrar">
-        <ion-button id="borrar" (click)="deleteMed(x)" ><ion-icon name="trash"></ion-icon>Eliminar</ion-button>
-      </div>
-    </ion-card-content>
-  </ion-card>
+  <div class="ion-nopadding">
+    <ion-list>
+      <ion-item-sliding>
+
+        <ion-item lines="none" *ngFor="let x of arregloMeds">
+          <ion-item>{{x.nombre_medicamento}} {{x.dosis}} {{x.hora | date: "hh:mm"}}</ion-item>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option>
+            <ion-icon slot="icon-only" name="pencil"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
   </div>
 </ion-content>

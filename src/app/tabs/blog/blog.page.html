@@ -5,25 +5,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="ion-padding">
-    <br>
-    <br>
-    <div id="title">
-      <ion-img id="logo" src="../../assets/img/logo.png"></ion-img> 
-      <h1>TDApp Blog</h1>
-    </div>
-  </div>
-  <div class="ion-padding">
-    <ion-card *ngFor="let x of blog">
-      <ion-img src='{{x.image}}'></ion-img>
+  <div class="ion-nopadding">
+    <ion-card *ngFor="let x of blogs">
       <ion-card-header>
+        <img src="{{x.image}}" alt="">
         <ion-card-title>{{x.title}}</ion-card-title>
-        <ion-card-subtitle>{{x.author}}</ion-card-subtitle>
-        <ion-card-content>
-          <p>{{x.created_at | date: "short"}}</p>
-        </ion-card-content>
       </ion-card-header>
-      <ion-button shape="block" fill="clear" routerLink="ver-blog/{{x.id}}">Ver más</ion-button>
+      <ion-card-content>
+        <p>{{x.author}}</p>
+        <p>{{x.created_at | date: "dd/MM/yyyy"}}</p>
+      </ion-card-content>
+      <div id="button" class="ion-padding">
+        <ion-button color="primary" size="small" routerLink="/tabs/blog/verblog/{{x.id}}">Ver</ion-button>
+      </div>
     </ion-card>
   </div>
 </ion-content>

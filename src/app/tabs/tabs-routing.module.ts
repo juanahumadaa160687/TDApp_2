@@ -17,12 +17,12 @@ const routes: Routes = [
         loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioPageModule),
       },
       {
-        path: 'blog',
-        loadChildren: () => import('./blog/blog.module').then(m => m.BlogPageModule),
-      },
-      {
         path: 'cerrar_sesion',
         loadChildren: () => import('./cerrar-sesion/cerrar-sesion.module').then(m => m.CerrarSesionPageModule),
+      },
+      {
+        path: 'blog',
+        loadChildren: () => import('./blog/blog.module').then( m => m.BlogPageModule)
       },
       {
         path: '',
@@ -30,7 +30,9 @@ const routes: Routes = [
         pathMatch: 'full'
       },
     ]
-  }
+  },
+
+
 ];
 
 @NgModule({

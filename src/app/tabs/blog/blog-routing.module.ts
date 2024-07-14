@@ -9,9 +9,15 @@ const routes: Routes = [
     component: BlogPage
   },
   {
-    path: 'ver-blog/:id',
-    loadChildren: () => import('./ver-blog/ver-blog.module').then( m => m.VerBlogPageModule)
+    path: 'verblog/:id',
+    loadChildren: () => import('./verblog/verblog.module').then( m => m.VerblogPageModule)
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/blog',
+    pathMatch: 'full'
   }
+
 ];
 
 @NgModule({

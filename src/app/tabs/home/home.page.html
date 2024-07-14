@@ -1,58 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      TDApp
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card id="card1">
-    <img alt="" src="../../../assets/img/rutina.jpg" />
-    <ion-card-header>
-      <ion-card-title>Rutinas</ion-card-title>
-      <ion-card-subtitle>En esta sección podrás registrar tus rutinas diarias y seguir tus progresos.</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-button routerLink="/tabs/home/rutina" expand="block">Ir a Rutinas</ion-button>
-    </ion-card-content>
-  </ion-card>
+  <div class="ion-nopadding">
+    <ion-card>
+      <ion-card-header>
+        <img class="imagen" src="../../../assets/img/rutina.jpg" alt="">
+        <ion-card-title>Rutinas</ion-card-title>
+        <ion-card-subtitle>Revisa tu Rutina Diaria</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button routerLink=""><ion-icon name="open-outline"></ion-icon></ion-button>
+      </ion-card-content>
+    </ion-card>
 
-  <ion-card id="card2">
-    <img alt="" src="../../../assets/img/todo.webp" />
-    <ion-card-header>
-      <ion-card-title>To Do</ion-card-title>
-      <ion-card-subtitle>Crea tus lista de tareas diarias</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-button routerLink="/tabs/home/todo" expand="block">Ir a To Do List</ion-button>
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <img class="imagen" src="../../../assets/img/todo.webp" alt="">
+        <ion-card-title>To Do List</ion-card-title>
+        <ion-card-subtitle>Agrega y Elimina tus eventos diarios</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button routerLink="/tabs/home/meds"><ion-icon name="open-outline" slot="start"></ion-icon>Ir</ion-button>
+      </ion-card-content>
+    </ion-card>
 
-  <ion-card id="card2">
-    <img alt="" src="../../../assets/img/meds.jpg" />
-    <ion-card-header>
-      <ion-card-title>Medicamentos</ion-card-title>
-      <ion-card-subtitle>Crea recordatorios para tus medicamentos.</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-button routerLink="/tabs/home/meds" expand="block">Ver Medicamentos</ion-button>
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <img class="imagen" src="../../../assets/img/meds.jpg" alt="">
+        <ion-card-title>Medicamentos</ion-card-title>
+        <ion-card-subtitle>Recuerda consumir tus medicamentos diariamente</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button routerLink=""><ion-icon name="open-outline"></ion-icon></ion-button>
+      </ion-card-content>
+    </ion-card>
 
-  <ion-card id="card1">
-    <img alt="" src="../../../assets/img/symptoms.webp" />
-    <ion-card-header>
-      <ion-card-title>Regitro de Síntomas</ion-card-title>
-      <ion-card-subtitle>Registra todos tus síntomas previos a tu control médico.</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-button routerLink="/tabs/home/sintomas" expand="block">Ver Registro</ion-button>
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <img class="imagen" src="../../../assets/img/symptoms.webp" alt="">
+        <ion-card-title>Registro de Síntomas</ion-card-title>
+        <ion-card-subtitle>Registra tus síntomas previo a una cita médica</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button routerLink=""><ion-icon name="open-outline"></ion-icon></ion-button>
+      </ion-card-content>
+    </ion-card>
 
+  </div>
 </ion-content>

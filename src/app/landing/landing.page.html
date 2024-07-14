@@ -1,23 +1,12 @@
-
-
-
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <div id="contenedor"><ion-img id="logo" src="../../assets/img/logo3.png" alt=""></ion-img></div>
-      </ion-col>
-    </ion-row>
-    <br>
-    <ion-row>
-      <ion-col>
-        <h1 id="titulo">Bienvenido a <br> <span id="titulo2">TDApp</span></h1>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <div class="ion-padding">
-    <ion-button expand="block" routerLink="/login" shape="round">Iniciar Sesión</ion-button>
-  
-    <ion-button expand="block" routerLink="/registro" shape="round">Crear Cuenta</ion-button>
+  <div id="background" class="ion-padding">
+  </div>
+  <div id="mask">
+    <img id="logo" src="../../assets/img/logo2.png" alt="" width="200">
+    <h1 id="title">TDApp</h1>
+  </div>
+  <div id="botones">
+    <ion-button id="login" expand="block" routerLink="/login">Iniciar sesión</ion-button>
+    <ion-button id="register" expand="block" routerLink="/registro">Registrarse</ion-button>
   </div>
 </ion-content>

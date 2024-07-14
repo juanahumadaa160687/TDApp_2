@@ -11,7 +11,6 @@ export class CerrarSesionPage implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
-    localStorage.setItem('isLogged', 'false');
     this.router.navigate(['/landing']);
   }
 }

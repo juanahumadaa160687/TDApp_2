@@ -53,7 +53,6 @@ export class DbAppService {
           this.crearTablaTodo();
           this.crearTablaMedicamentos();
           this.crearTablaSintomas();
-          this.presentToast('Database ready');
         })
         .catch(e => this.presentToast('Error creating database'));
     });
@@ -102,7 +101,7 @@ export class DbAppService {
   eliminarSintoma(id: number) {
     return this.db.executeSql('DELETE FROM sintomas WHERE id = ?', [id])
       .then(res => {
-        this.presentToast('Sintoma eliminado correctamente');
+        this.presentToast('Sintoma eliminado');
         this.buscarSintomas();
       })
       .catch(e => this.presentToast('Error al eliminar sintoma' + e));
@@ -143,7 +142,7 @@ export class DbAppService {
   eliminarMedicamento(id: number) {
     return this.db.executeSql('DELETE FROM medicamentos WHERE id = ?', [id])
       .then(res => {
-        this.presentToast('Medicamento eliminado correctamente');
+        this.presentToast('Medicamento eliminado');
         this.buscarMedicamentos();
       })
       .catch(e => this.presentToast('Error al eliminar medicamento' + e));
@@ -254,7 +253,7 @@ export class DbAppService {
   eliminarActividad(id: number) {
     return this.db.executeSql('DELETE FROM todo WHERE id = ?', [id])
       .then(res => {
-        this.presentToast('Actividad eliminada correctamente');
+        this.presentToast('Actividad eliminada');
         this.buscarTodos();
       })
       .catch(e => this.presentToast('Error al eliminar actividad' + e));
@@ -270,7 +269,6 @@ export class DbAppService {
         this.db = db;
         this.isDbReady.next(true);
         this.createTableUsuario();
-        this.presentToast('Database ready');
       })
       .catch(e => this.presentToast('Error creating database'));
     }
@@ -281,12 +279,11 @@ export class DbAppService {
 
     async createTableUsuario() {
       await this.db.executeSql('CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, nombre TEXT, apellido TEXT, correo TEXT, contrasena TEXT)', [])
-        .then(() => this.presentToast('Table usuario created'))
         .catch(e => this.presentToast('Error creating table' + e));
         this.isDbReady.next(true);
     }
 
-    
+
 
 
     // CRUD de usuarios
@@ -322,7 +319,7 @@ export class DbAppService {
 
     // CRUD de rutinas
 
-    
+
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({

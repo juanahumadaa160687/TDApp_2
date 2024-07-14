@@ -1,32 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Agregar Medicamento</ion-title>
+    <ion-title>Nuevo Medicamento</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Medicamento</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-item>
-          <ion-input label="Medicamento:" labelPlacement="floating" [(ngModel)]="nombre" clearInput="true" required></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input label="Dosis:" labelPlacement="floating" [(ngModel)]="dosis" clearInput="true" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Hora:" labelPlacement="floating" [(ngModel)]="hora" clearInput="true" type="time" ></ion-input>
-        </ion-item>
-
-        <ion-button shape="block" (click)="enviarMedicamento()">Guardar</ion-button>
-      </ion-card-content>
-    </ion-card>
+  <div id="contenido" class="ion-nopadding">
+    <img src="../src/assets/img/meds.jpg" alt="">
+    <ion-item lines="none">
+      <ion-input label="Medicamento:" labelPlacement="floating" type="text" required [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Dosis:" labelPlacement="floating" type="text" required [(ngModel)]="dosis"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Hora:" labelPlacement="floating" type="time" required [(ngModel)]="hora"></ion-input>
+    </ion-item>
+    <ion-button expand="block" ><ion-icon name="add" slot="start"></ion-icon>Guardar</ion-button>
   </div>
 </ion-content>

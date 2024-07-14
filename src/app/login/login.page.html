@@ -5,30 +5,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">TDApp</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <br>
-  <div class="ion-padding" id="contenedor">
-    <ion-card>
-      <ion-card-header>
-        <div id="title">
-          <ion-img id="logo" src="../../assets/img/logo.png"></ion-img> 
-          <h1>Iniciar Sesión</h1>
-        </div>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-input lines="none" label="Email:" type="email" [(ngModel)]="email" required></ion-input>
-        <ion-input lines="none" label="Contraseña:" type="password" [(ngModel)]="password" required>
-          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-        </ion-input>
-        <div class="ion-padding botones">
-          <ion-button expand="block" (click)="login()" shape="round">Iniciar Sesión</ion-button>
-          <ion-button expand="block" routerLink="/registro" shape = round>Registrarse</ion-button>
-        </div>
-      </ion-card-content>
-    </ion-card>
+  <div class="ion-padding">
+    <div id="head" class="ion-padding">
+      <ion-img id="logo" src="assets/img/logo2.png"></ion-img>
+      <h2>Inicio de Sesión</h2>
+    </div>
+
+    <ion-item lines="none">
+      <ion-input label="Email:" labelPlacement="floating" type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input label="Contraseña:" type="password" labelPlacement="floating" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-button id="contrasena" color="secondary" size="small" routerLink="/recuperar" expand="block" fill="clear">Recuperar Contraseña</ion-button>
+
+    <div class="ion-padding">
+      <ion-button expand="block" (click)="login()">Iniciar Sesión</ion-button>
+      <ion-button color="secondary" size="small" routerLink="/registro" expand="block" fill="clear">Crear Cuenta</ion-button>
+    </div>
   </div>
 </ion-content>

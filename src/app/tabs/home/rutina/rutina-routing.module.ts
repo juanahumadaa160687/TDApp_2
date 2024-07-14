@@ -21,10 +21,6 @@ const routes: Routes = [
     path: 'ver-rutina/:id',
     loadChildren: () => import('./ver-rutina/ver-rutina.module').then( m => m.VerRutinaPageModule)
   },
-  {
-    path: 'eliminar-rutina/:id',
-    loadChildren: () => import('./eliminar-rutina/eliminar-rutina.module').then( m => m.EliminarRutinaPageModule)
-  }
 
 ];
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ApiRestService } from 'src/app/services/api-rest.service';
+import {ApiService} from "../../services/api.service";
+import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
   selector: 'app-blog',
@@ -9,21 +9,24 @@ import { ApiRestService } from 'src/app/services/api-rest.service';
 })
 export class BlogPage implements OnInit {
 
-  blog: any = [];
+  public blogs: any = [];
 
-  constructor( private api: ApiRestService) { }
-
-  ionViewWillEnter() {
-    this.traerPosts();
-  }
+  constructor(private api:ApiService, private router: Router) { }
 
   ngOnInit() {
   }
+  ionViewWillEnter(){
+    this.api.getPosts().subscribe((response) => {
+      this.blogs = response;
+    });
+  }
 
-  traerPosts() {
-    this.api.getPosts().subscribe((data) => {
-      this.blog = data.posts;
-  })
-}
+  getPost(x: any){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        idEnviado: x.id
+      }
+    }; this.router.navigate(['/tabs/blog/verblog'], navigationExtras);
+    }
 
 }

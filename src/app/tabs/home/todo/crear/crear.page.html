@@ -1,29 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
     <ion-title>Nueva Actividad</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Actividades</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
+  <div class="ion-padding">
+    <img src="../../../../../assets/img/todo2.jpeg" alt="">
+    <ion-item lines="none">
+      <ion-input label="Actividad" labelPlacement="floating" type="text" required></ion-input>
+    </ion-item>
 
-        <ion-item>
-          <ion-input label="Actividad:" labelPlacement="floating" [(ngModel)]="actividad" clearInput="true" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input label="fecha:" labelPlacement="floating" [(ngModel)]="fecha" clearInput="true" type="date"></ion-input>
-        </ion-item>
-
-        <ion-button shape="block" (click)="enviarActividad()">Guardar</ion-button>
-      </ion-card-content>
-    </ion-card>
+    <ion-item lines="none">
+      <ion-input label="Fecha" labelPlacement="floating" type="date" required></ion-input>
+    </ion-item>
+  </div>
+  <div class="ion-padding">
+    <ion-button expand="block"><ion-icon name="add" slot="start"></ion-icon>Guardar</ion-button>
   </div>
 </ion-content>

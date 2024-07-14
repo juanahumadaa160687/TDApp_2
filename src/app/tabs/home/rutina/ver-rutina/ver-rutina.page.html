@@ -1,25 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Rutinas</ion-title>
+    <ion-title>Rutina</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <img src="./assets/img/rutina.jpg" alt="">
   <div class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{rutina}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-text><h2>{{act1}}</h2></ion-text>
-      <ion-text><h2>{{act2}}</h2></ion-text>
-      <ion-text><h2>{{act3}}</h2></ion-text>
-      <ion-text><h2>{{act4}}</h2></ion-text>
-      <ion-text><h2>{{act5}}</h2></ion-text>
-    </ion-card-content>
-  </ion-card>
+    <h1>Nombre Rutina</h1>
+    <ion-item lines="none">
+      <ion-label>Actividad</ion-label>
+    </ion-item>
   </div>
 </ion-content>

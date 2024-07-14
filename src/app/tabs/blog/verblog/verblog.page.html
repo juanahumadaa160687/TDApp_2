@@ -1,13 +1,58 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>verblog</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Blog</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">verblog</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="ion-nopadding">
+    <ion-card *ngFor="let x of blog">
+      <ion-card-header>
+        <img src="{{x.image}}" alt="">
+        <ion-card-title>{{x.title}}</ion-card-title>
+      </ion-card-header>
+      <br>
+      <ion-card-content>
+        <p>{{x.author}}</p>
+        <p>{{x.created_at |  date: "dd/MM/yyyy"}}</p>
+        <br>
+        <p>{{x.content1}}</p>
+        <p>{{x.content2}}</p>
+        <p>{{x.content3}}</p>
+        <p>{{x.content4}}</p>
+        <p>{{x.content5}}</p>
+      </ion-card-content>
+    </ion-card>
+    <br>
+    <div class="ion-padding">
+      <h2>Comentarios:</h2>
+    </div>
+    <ion-card *ngFor="let x of blog">
+      <ion-card-header>
+        <ion-card-title>{{x.usuario}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{x.comentario}}</p>
+        <p>{{x.fecha | date: "dd/MM/yyyy"}}</p>
+      </ion-card-content>
+    </ion-card>
+    <br>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Deja un comentario</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="none"><ion-input label="Usuario" labelPlacement="floating" required></ion-input></ion-item>
+        <ion-item lines="none"><ion-textarea label="Comentario" labelPlacement="floating" required></ion-textarea></ion-item>
+        <ion-item lines="none"><ion-input label="Fecha" labelPlacement="floating" type="date"></ion-input></ion-item>
+      </ion-card-content>
+      <div class="ion-padding">
+        <ion-button expand="block" >Comentar</ion-button>
+      </div>
+    </ion-card>
+
+  </div>
 </ion-content>

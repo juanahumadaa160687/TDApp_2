@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { enterAnimation } from './animations/nav-animation';
 
 
@@ -15,7 +15,7 @@ import { enterAnimation } from './animations/nav-animation';
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot({
     navAnimation: enterAnimation
-  }), AppRoutingModule],
+  }), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SQLite, HttpClient],
   bootstrap: [AppComponent],
 })
